@@ -13,7 +13,7 @@ namespace SlithyToves.DataAccess
             OrderDetails = new HashSet<OrderDetail>();
         }
 
-        public int ProductId { get; set; }
+        public int ProductId { get; private set; }
         public string ProductName { get; set; }
         public decimal? UnitPrice { get; set; }
 
