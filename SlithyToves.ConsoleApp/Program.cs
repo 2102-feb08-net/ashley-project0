@@ -11,8 +11,6 @@ namespace SlithyToves.ConsoleApp
 {
     class Program
     {
-        // static DbContextOptions<SlithyTovesContext> s_dbContextOptions;
-
         static void Main(string[] args)
         {
             string connectionString = File.ReadAllText("C:/revature/st-conn.txt");
@@ -26,11 +24,11 @@ namespace SlithyToves.ConsoleApp
             while (true) 
             {
                 PrintMainMenu();
-                var input = Convert.ToInt32(Console.ReadLine());
-                if (input == 1)
+                if (GetMenuSelection == 1)
                 {
-                    Console.WriteLine("Input is 1");
-                    break;
+                    Console.WriteLine("Enter a customer ID: ");
+                    var id = Convert.ToInt32(Console.ReadLine());
+
                 }
             }
         }
@@ -39,13 +37,14 @@ namespace SlithyToves.ConsoleApp
         {
             Console.WriteLine("\nSlithy Toves Bookish Interface\n");
             Console.WriteLine("Main Menu\n");
-            Console.WriteLine("To view a list of current customers, please enter \"1\"");
-            Console.WriteLine("To add a customer, please enter \"2\"");
-            Console.WriteLine("To place an order, please enter \"3\"");
-            Console.WriteLine("To view the order history of a customer, please enter \"4\"");
-            Console.WriteLine("To view the details of an order, please enter \"5\"");
-            Console.WriteLine("To view the order history of a location, please enter \"6\"");
-            Console.WriteLine("To quit, enter \"7\"");
+            Console.WriteLine("1 - To view a list of current customers");
+            Console.WriteLine("2 - To add a customer");
+            Console.WriteLine("3 - To place an order");
+            Console.WriteLine("4 - To view the order history of a customer");
+            Console.WriteLine("5 - To view the details of an order");
+            Console.WriteLine("6 - To view the order history of a location");
+            Console.WriteLine("7 - To quit\n");
+            Console.WriteLine("Select an option 1-7: ");
         }
 
         public static void PrintShortMenu() 
@@ -53,5 +52,8 @@ namespace SlithyToves.ConsoleApp
             Console.WriteLine("To return to the main menu, please enter \"1\"");
             Console.WriteLine("To quit, enter \"2\"");
         }
+
+        public static int GetMenuSelection() => Convert.ToInt32(Console.ReadLine());
+        
     }
 }
