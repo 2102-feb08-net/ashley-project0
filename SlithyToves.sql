@@ -61,15 +61,6 @@ ALTER TABLE order_details ADD CONSTRAINT
 ALTER TABLE order_details ADD CONSTRAINT
 	FK_od2 FOREIGN KEY (productId) REFERENCES products (productId);
 
-
-SELECT * FROM customers;
-SELECT * FROM stores;
-SELECT * FROM products;
-SELECT * FROM orders;
-SELECT * FROM order_details;
-SELECT * FROM inventories;
-
-
 INSERT INTO customers (firstName, lastName, phone, email, zip) VALUES
 	('Jean', 'King', '123-456-7898', 'aef@hotmail.com', 12345),
 	('Wendy', 'Franco', '123492323', 'aisemaew@gmail.com', 23453),
@@ -138,3 +129,59 @@ INSERT INTO inventories (storeId, productId, onHand) VALUES
 	(3, 12, 18);
 
 SET IDENTITY_INSERT inventories OFF;
+
+-- Get customer by last name
+SELECT customerId, firstName, lastName, phone, email, zip 
+FROM customers
+WHERE lastName = 'King';
+
+-- CreateCustomer
+INSERT INTO customers (firstName, lastName, phone, email, zip) VALUES
+	('inputa', 'inputb', 'inputc', 'inputd', 12343);
+
+-- GetOrderHistoryByStoreId
+SELECT s.storeId, s.storeName, o.orderId, o.customerId, o.orderDate
+	FROM stores s INNER JOIN orders o ON s.storeId = o.storeId
+	WHERE s.storeId = 3; -- input
+
+-- GetOrderDetailsByOrderId
+SELECT o.orderId, o.customerId, o.orderDate, o.storeId, od.productId, od.quantity
+	FROM orders o INNER JOIN order_details od ON o.orderId = od.orderId
+	WHERE o.orderId = 2; -- input
+
+-- GetOrderHistoryByCustomerId
+SELECT c.customerId, c.firstName, c.lastName, o.orderId, o.storeId, o.orderDate, od.productId, od.quantity
+	FROM customers c INNER JOIN orders o ON c.customerId = o.customerId
+	INNER JOIN order_details od ON o.orderId = od.orderId
+	WHERE c.customerId = 1; -- input
+
+ALTER TABLE orders 
+ADD subtotal DECIMAL (10, 2);
+
+UPDATE orders 
+SET subtotal = 183.40 
+WHERE orderId = 1;
+
+UPDATE orders 
+SET subtotal = 883.40 
+WHERE orderId = 2;
+
+UPDATE orders 
+SET subtotal = 13.40 
+WHERE orderId = 3;
+
+UPDATE orders 
+SET subtotal = 683.40 
+WHERE orderId = 4;
+
+UPDATE orders 
+SET subtotal = 783.40 
+WHERE orderId = 5;
+
+UPDATE orders 
+SET subtotal = 83.40 
+WHERE orderId = 6;
+
+UPDATE orders 
+SET subtotal = 18.00 
+WHERE orderId = 7;
