@@ -1,3 +1,6 @@
+using System;
+using NLog;
+
 namespace SlithyToves.DataAccess
 {
     public class CustomerRepo
