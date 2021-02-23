@@ -5,9 +5,9 @@ namespace SlithyToves.Library.Models
 {
     public class OrderModel : ILog
     {
-        public int OrderId { get; set; }
-        public int CustomerId { get; set; }
-        public int StoreId { get; set; }
+        public int OrderId { get; private set; }
+        public int CustomerId { get; private set; }
+        public int StoreId { get; private set; }
         private date _orderDate;
         private decimal _subtotal;
 
@@ -33,5 +33,22 @@ namespace SlithyToves.Library.Models
 
         public string Log() => 
             $"OrderID: {OrderId}\tCustomerID: {CustomerId}\tStoreID: {StoreId}\tOrder Date: {OrderDate}\tSubtotal: {Subtotal}";
+
+
+        public OrderModel(int orderId = 0, int customerId = 0, int storeId = 0)
+        {
+            OrderId = orderId;
+            CustomerId = customerId;
+            StoreId = storeId;
+        }
+
+        public OrderModel(date orderDate, decimal subtotal, int orderId = 0, int customerId = 0, int storeId = 0)
+        {
+            OrderId = orderId;
+            CustomerId = customerId;
+            StoreId = storeId;
+            OrderDate = orderDate;
+            Subtotal = subtotal;
+        }
     }
 }

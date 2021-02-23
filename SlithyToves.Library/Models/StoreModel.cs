@@ -5,7 +5,7 @@ namespace SlithyToves.Library.Models
 {
     public class StoreModel : ILog
     {
-        public int StoreId { get; set; }
+        public int StoreId { get; private set; }
         private string _storeName;
 
         public string StoreName 
@@ -23,5 +23,12 @@ namespace SlithyToves.Library.Models
 
         public string Log() => 
             $"StoreID: {StoreId}\tStore Name: {StoreName}";
+
+
+        public StoreModel(string storeName, int storeId = 0)
+        {
+            StoreId = storeId;
+            StoreName = storeName;
+        }
     }
 }

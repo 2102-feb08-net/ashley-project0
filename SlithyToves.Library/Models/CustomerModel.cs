@@ -5,12 +5,14 @@ namespace SlithyToves.Library.Models
 {
     public class CustomerModel : ILog
     {
-        public int CustomerId { get; set; }
+        public int CustomerId { get; private set; }
         private string _firstName;
         private string _lastName;
         private string _phone;
         private string _email;
         private string _zip;
+
+        
 
         public string FirstName 
         {
@@ -82,5 +84,23 @@ namespace SlithyToves.Library.Models
 
         public string Log() => 
             $"ID: {CustomerId}\tName: {FirstName} {LastName}\tPhone: {Phone}\tEmail: {Email}\tZip: {Zip}";
+
+        
+        public CustomerModel(string firstName, string lastName, int id = 0)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            CustomerId = id;
+        }
+
+        public CustomerModel(string firstName, string lastName, String phone, string email, string zip, int id = 0)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            CustomerId = id;
+            Phone = phone;
+            Email = email;
+            Zip = zip;
+        }
     }
 }

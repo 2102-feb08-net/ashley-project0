@@ -5,7 +5,7 @@ namespace SlithyToves.Library.Models
 {
     public class ProductModel : ILog
     {
-        public int ProductId { get; set; }
+        public int ProductId { get; private set; }
         private string _productName;
         private decimal _unitPrice;
 
@@ -37,5 +37,19 @@ namespace SlithyToves.Library.Models
 
         public string Log() => 
             $"ProductID: {ProductId}\tProduct Name: {ProductName}tUnit Price: {UnitPrice}";
+
+
+        public ProductModel(string productName, int productId = 0)
+        {
+            ProductId = productId;
+            ProductName = productName;
+        }
+
+        public ProductModel(string productName, decimal unitPrice, int productId = 0)
+        {
+            ProductId = productId;
+            ProductName = productName;
+            UnitPrice = unitPrice;
+        }
     }
 }
