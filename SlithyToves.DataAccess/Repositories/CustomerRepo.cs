@@ -4,8 +4,8 @@ namespace SlithyToves.DataAccess
     {
         private readonly SlithyTovesContext _dbContext;
 
-        private static readonly ILogger s_logger = LogManager.GetCurrentClassLogger();
+        //private static readonly ILogger s_logger = LogManager.GetCurrentClassLogger();
 
-        public 
+         
     }
 }

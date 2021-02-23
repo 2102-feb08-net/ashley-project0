@@ -1,12 +1,10 @@
-using SlithyToves.DataAccess;
 using System;
-using System.ComponentModel.DataAnnotations;
 
 namespace SlithyToves.Library.Models
 {
     public class CustomerModel
     {
-        public int _customerID { get; set; }
+        public int CustomerId { get; set; }
         private string _firstName;
         private string _lastName;
         private string _phone;
@@ -20,7 +18,7 @@ namespace SlithyToves.Library.Models
             {
                 if (value.Length == 0) 
                 {
-                    throw new ArgumentException("First name field must not be empty.", nameof(value));
+                    throw new ArgumentException("First name must not be empty.", nameof(value));
                 }
                 _firstName = value;
             }
@@ -33,7 +31,7 @@ namespace SlithyToves.Library.Models
             {
                 if (string.IsNullOrEmpty(LastName)) 
                 {
-                    throw new ArgumentException("Last name field must not be empty.", nameof(value));
+                    throw new ArgumentException("Last name must not be empty.", nameof(value));
                 }
                 _lastName = value;
             }
