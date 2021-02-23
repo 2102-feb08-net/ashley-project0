@@ -99,6 +99,10 @@ namespace SlithyToves.DataAccess
 
                 entity.Property(e => e.StoreId).HasColumnName("storeId");
 
+                entity.Property(e => e.Subtotal)
+                    .HasColumnType("decimal(10, 2)")
+                    .HasColumnName("subtotal");
+
                 entity.HasOne(d => d.Customer)
                     .WithMany(p => p.Orders)
                     .HasForeignKey(d => d.CustomerId)

@@ -7,8 +7,8 @@ namespace SlithyToves.DataAccess
 {
     public partial class Inventory
     {
-        public int StoreId { get; private set; }
-        public int ProductId { get; private set; }
+        public int StoreId { get; set; }
+        public int ProductId { get; set; }
         public int OnHand { get; set; }
 
         public virtual Product Product { get; set; }

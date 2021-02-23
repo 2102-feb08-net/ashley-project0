@@ -3,8 +3,13 @@
     "",
     "\\SlithyToves.ConsoleApp",
     "\\SlithyToves.DataAccess",
+    "\\SlithyToves.DataAccess\\Entities",
+    "\\SlithyToves.DataAccess\\Repositories",
+    "\\SlithyToves.Library",
+    "\\SlithyToves.Library\\Interfaces",
+    "\\SlithyToves.Library\\Models",
     "\\SlithyToves.Tests"
   ],
-  "SelectedNode": "\\SlithyToves.ConsoleApp\\SlithyToves.ConsoleApp.csproj",
+  "SelectedNode": "\\SlithyToves.DataAccess\\Repositories",
   "PreviewInSolutionExplorer": false
 }

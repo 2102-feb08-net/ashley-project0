@@ -111,6 +111,11 @@ namespace SlithyToves.ConsoleApp
             
         }
 
+        public enum UserSelection
+        {
+            
+        }
+
         public static void PrintMainMenu() 
         {
             Console.WriteLine("\nSlithy Toves Bookish Interface\n");
