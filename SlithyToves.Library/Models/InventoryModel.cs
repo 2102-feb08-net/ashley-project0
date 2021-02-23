@@ -1,8 +1,9 @@
 using System;
+using SlithyToves.DataAccess;
 
 namespace SlithyToves.Library.Models
 {
-    public class InventoryModel
+    public class InventoryModel : ILog
     {
         public int StoreId { get; set; }
         public int ProductId { get; set; }
@@ -20,5 +21,8 @@ namespace SlithyToves.Library.Models
                 _onHand = OnHand;
             }
         }
+
+        public string Log() => 
+            $"StoreID: {StoreId}\tProductID: {ProductId}\tOn Hand: {OnHand}";
     }
 }

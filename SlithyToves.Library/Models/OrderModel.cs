@@ -1,8 +1,9 @@
 using System;
+using SlithyToves.DataAccess;
 
 namespace SlithyToves.Library.Models
 {
-    public class OrderModel
+    public class OrderModel : ILog
     {
         public int OrderId { get; set; }
         public int CustomerId { get; set; }
@@ -29,5 +30,8 @@ namespace SlithyToves.Library.Models
             }
             _subtotal = Subtotal;
         }
+
+        public string Log() => 
+            $"OrderID: {OrderId}\tCustomerID: {CustomerId}\tStoreID: {StoreId}\tOrder Date: {OrderDate}\tSubtotal: {Subtotal}";
     }
 }

@@ -14,6 +14,7 @@ namespace SlithyToves.DataAccess
     {
         private bool _disposed = false;
         private SafeHandle _safeHandle = new SafeFileHandle(IntPtr.Zero, true);
+        private readonly List<IDisposable> _disposables = new List<IDisposable>();
 
         public SlithyTovesContext getConnectionContext()
         {

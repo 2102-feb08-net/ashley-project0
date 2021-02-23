@@ -1,8 +1,9 @@
 using System;
+using SlithyToves.DataAccess;
 
 namespace SlithyToves.Library.Models
 {
-    public class CustomerModel
+    public class CustomerModel : ILog
     {
         public int CustomerId { get; set; }
         private string _firstName;
@@ -78,5 +79,8 @@ namespace SlithyToves.Library.Models
                 _zip = Zip;
             }
         }
+
+        public string Log() => 
+            $"ID: {CustomerId}\tName: {FirstName} {LastName}\tPhone: {Phone}\tEmail: {Email}\tZip: {Zip}";
     }
 }

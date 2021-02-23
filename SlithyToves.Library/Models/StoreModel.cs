@@ -1,8 +1,9 @@
 using System;
+using SlithyToves.DataAccess;
 
 namespace SlithyToves.Library.Models
 {
-    public class StoreModel
+    public class StoreModel : ILog
     {
         public int StoreId { get; set; }
         private string _storeName;
@@ -19,5 +20,8 @@ namespace SlithyToves.Library.Models
                 _storeName = value;
             }
         }
+
+        public string Log() => 
+            $"StoreID: {StoreId}\tStore Name: {StoreName}";
     }
 }

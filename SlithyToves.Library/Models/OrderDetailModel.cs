@@ -1,8 +1,9 @@
 using System;
+using SlithyToves.DataAccess;
 
 namespace SlithyToves.Library.Models
 {
-    public class OrderDetailModel
+    public class OrderDetailModel : ILog
     {
         public int OrderId { get; set; }
         public int ProductId { get; set; }
@@ -20,5 +21,8 @@ namespace SlithyToves.Library.Models
                 _quantity = Quantity;
             }
         }
+
+        public string Log() => 
+            $"OrderID: {OrderId}\tProductID: {ProductId}\tQuantity: {Quantity}";
     }
 }

@@ -1,8 +1,9 @@
 using System;
+using SlithyToves.DataAccess;
 
 namespace SlithyToves.Library.Models
 {
-    public class ProductModel
+    public class ProductModel : ILog
     {
         public int ProductId { get; set; }
         private string _productName;
@@ -33,5 +34,8 @@ namespace SlithyToves.Library.Models
                 _unitPrice = UnitPrice;
             }
         }
+
+        public string Log() => 
+            $"ProductID: {ProductId}\tProduct Name: {ProductName}tUnit Price: {UnitPrice}";
     }
 }
