@@ -10,6 +10,6 @@
     "\\SlithyToves.Library\\Models",
     "\\SlithyToves.Tests"
   ],
-  "SelectedNode": "\\SlithyToves.DataAccess\\Repositories",
+  "SelectedNode": "\\SlithyToves.Tests\\RepositoryTest.cs",
   "PreviewInSolutionExplorer": false
 }

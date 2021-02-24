@@ -1,6 +1,8 @@
 using System;
 using System.Linq;
-using SlithyToves.DataAccess;
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Collections;
 using SlithyToves.Library;
 
 namespace SlithyToves.DataAccess
@@ -14,11 +16,17 @@ namespace SlithyToves.DataAccess
             _dbContext = context ?? throw new ArgumentException(nameof(context));
         }
 
-        public List<Library.Models.CustomerModel> GetAllCustomers()
+        public Library.Models.CustomerModel GetCustomerById(int id)
         {
-            var customers = new List<SlithyToves.Library.Models.CustomerModel>();
-            return 
+            var customer = _dbContext.Customers.Find(id);
+            return new Library.Models.CustomerModel
+            {
+                FirstName = customer.FirstName,
+                LastName = customer.LastName,
+                Email = customer.Email,
+                Phone = customer.Phone,
+                Zip = customer.Zip
+            };
         }
-
     }
 }

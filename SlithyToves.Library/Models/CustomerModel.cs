@@ -85,6 +85,8 @@ namespace SlithyToves.Library.Models
         public string Log() => 
             $"ID: {CustomerId}\tName: {FirstName} {LastName}\tPhone: {Phone}\tEmail: {Email}\tZip: {Zip}";
 
+        public CustomerModel() {}
+
         
         public CustomerModel(string firstName, string lastName, int id = 0)
         {

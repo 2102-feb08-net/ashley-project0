@@ -21,7 +21,6 @@ namespace SlithyToves.DataAccess
             string connectionString = File.ReadAllText("C:/revature/st-conn.txt");
             var options = new DbContextOptionsBuilder<SlithyTovesContext>()
                 .UseSqlServer(connectionString)
-                .LogTo(s => Debug.WriteLine(s), minimumLevel: LogLevel.Information)
                 .LogTo(s => Debug.WriteLine(s), minimumLevel: LogLevel.Debug)
                 .Options;
             var context = new SlithyTovesContext(options);
