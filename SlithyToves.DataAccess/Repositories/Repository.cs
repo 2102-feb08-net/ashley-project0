@@ -37,7 +37,18 @@ namespace SlithyToves.DataAccess
                 Console.WriteLine($"{result.CustomerId}\t{result.FirstName} {result.LastName}\t{result.Phone}\t{result.Email}\t{result.Zip}");
             }
             return list;
+        }
 
+        public bool CreateCustomer(Customer customer)
+        {
+            Customer customerToCreate = new Customer() 
+                { FirstName = customer.FirstName, LastName = customer.LastName, Phone = customer.Phone, 
+                    Email = customer.Email, Zip = customer.Zip };
+            
+            _dbContext.Add(customerToCreate);
+            _dbContext.SaveChanges();
+
+            return true;
         }
     }
 }

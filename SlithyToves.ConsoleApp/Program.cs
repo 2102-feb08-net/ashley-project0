@@ -29,7 +29,7 @@ namespace SlithyToves.ConsoleApp
                 PrintMainMenu();
                 var input1 = Console.ReadLine();
 
-                if (input1 == "a" || input1 == "b" || input1 == "c" || input1 == "d")
+                if (input1 == "a" || input1 == "b" || input1 == "c" || input1 == "d" || input1 == "e")
                 {
                     if (input1 == "a") 
                     {
@@ -61,12 +61,20 @@ namespace SlithyToves.ConsoleApp
                     }
                     else if (input1 == "c")
                     {
-                        CustomerUI.DisplayMenuToGetAllCustomers(repository);
+                        CustomerUI.DisplayMenuToCreateCustomer(repository);
+                    }
+                    else if (input1 == "d")
+                    {
+
+                    }
+                    else if (input1 == "e")
+                    {
+                        break;
                     }
                 }
                 else
                 {
-                    Console.WriteLine("Please enter a valid option.");
+                    Console.WriteLine("Invalid option. Please try again.");
                     continue;
                 }              
             }
@@ -79,11 +87,10 @@ namespace SlithyToves.ConsoleApp
             Console.WriteLine("Main Menu\n");
             Console.WriteLine("a - To search for a customer by ID");  
             Console.WriteLine("b - To search for a customer by name");   
-            Console.WriteLine("c - To view all customers");
-            Console.WriteLine("e - To view the details of an order");
-            Console.WriteLine("f - To view the order history of a location");
-            Console.WriteLine("g - To quit\n");
-            Console.WriteLine("Select an option a-g: ");
+            Console.WriteLine("c - To create a new customer");
+            Console.WriteLine("d - To search for an order");
+            Console.WriteLine("e - To quit");
+            Console.WriteLine("Select an option a-e: ");
         }
 
 
