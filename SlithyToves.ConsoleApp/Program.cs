@@ -14,130 +14,51 @@ namespace SlithyToves.ConsoleApp
 
         static void Main(string[] args)
         {
-            // string connectionString = File.ReadAllText("C:/revature/st-conn.txt");
-            // var options = new DbContextOptionsBuilder<SlithyTovesContext>()
-            //     .UseSqlServer(connectionString)
-            //     .LogTo(s => Debug.WriteLine(s), minimumLevel: LogLevel.Information)
-            //     .LogTo(s => Debug.WriteLine(s), minimumLevel: LogLevel.Debug)
-            //     .Options;
             using var disposables = new Disposables();
             var context = disposables.getConnectionContext();
             Repository repository = new Repository(context);
-            // var customer = context.Customers.Find(1);
-            // Console.WriteLine(customer.FirstName);
 
             ConsoleUI(repository);
         }
 
         public static void ConsoleUI(Repository repository)
         {
-            using var disposables = new Disposables();
-            var context = disposables.getConnectionContext();
-            Repository repository1 = new Repository(context);
-            var customer = context.Customers.Find(1);
-            Console.WriteLine(customer.FirstName);
+            
+            while (true)
+            {
+                PrintMainMenu();
+                var input = Console.ReadLine();
 
-            // Console.WriteLine();
-            // while (true)
-            // {
-                
-            //     PrintMainMenu();
-            //     if (GetMenuSelection().Equals(1))
-            //     {
-            //         Console.WriteLine(repository.GetCustomerById(GetMenuSelection()));
-            //         PrintShortMenu();
-            //         if (GetMenuSelection().Equals(1))
-            //         {
-            //             continue;
-            //         }
-            //         break;                    
-            //     }
-            //     if (GetMenuSelection().Equals(2))
-            //     {
-            //         //CreateCustomer();
-            //         PrintShortMenu();
-            //         if (GetMenuSelection().Equals(1))
-            //         {
-            //             continue;
-            //         }
-            //         else
-            //         {
-            //             break;
-            //         }
-            //     }
-            //     if (GetMenuSelection().Equals(3))
-            //     {
-            //         //CreateOrder();
-            //         PrintShortMenu();
-            //         if (GetMenuSelection().Equals(1))
-            //         {
-            //             continue;
-            //         }
-            //         else
-            //         {
-            //             break;
-            //         }
-            //     }
-            //     if (GetMenuSelection().Equals(4))
-            //     {
-            //         //GetOrdersByCustomer();
-            //         PrintShortMenu();
-            //         if (GetMenuSelection().Equals(1))
-            //         {
-            //             continue;
-            //         }
-            //         else
-            //         {
-            //             break;
-            //         }
-            //     }
-            //     if (GetMenuSelection().Equals(5))
-            //     {
-            //         //GetOrderDetailsById();
-            //         PrintShortMenu();
-            //         if (GetMenuSelection().Equals(1))
-            //         {
-            //             continue;
-            //         }
-            //         else
-            //         {
-            //             break;
-            //         }
-            //     }
-            //     if (GetMenuSelection().Equals(6))
-            //     {
-            //         //GetOrdersByLocation();
-            //         PrintShortMenu();
-            //         if (GetMenuSelection().Equals(1))
-            //         {
-            //             continue;
-            //         }
-            //         else
-            //         {
-            //             break;
-            //         }
-            //     }
-            //     if (GetMenuSelection().Equals(7))
-            //     {
-            //         Console.Write("Have a nice day!");
-            //         break;
-            //     }
-            // }
+                if (input == "a" || input == "b" || input == "c" || input == "d")
+                {
+                    if (input == "a") 
+                    {
+                        CustomerUI.DisplayCustomerMenu(repository);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Please enter a valid option.");
+                    continue;
+                }
+            }
         }
 
         public static void PrintMainMenu()
         {
             Console.WriteLine("\nSlithy Toves Bookish Interface\n");
             Console.WriteLine("Main Menu\n");
-            Console.WriteLine("1 - To search for customers by ID");  // add search by name
-            Console.WriteLine("2 - To add a customer");
-            Console.WriteLine("3 - To place an order");
-            Console.WriteLine("4 - To view the order history of a customer");
-            Console.WriteLine("5 - To view the details of an order");
-            Console.WriteLine("6 - To view the order history of a location");
-            Console.WriteLine("7 - To quit\n");
-            Console.WriteLine("Select an option 1-7: ");
+            Console.WriteLine("a - To search for customers by ID");  // add search by name
+            Console.WriteLine("b - To add a customer");
+            Console.WriteLine("c - To place an order");
+            Console.WriteLine("d - To view the order history of a customer");
+            Console.WriteLine("e - To view the details of an order");
+            Console.WriteLine("f - To view the order history of a location");
+            Console.WriteLine("g - To quit\n");
+            Console.WriteLine("Select an option a-g: ");
         }
+
+
 
         public static void PrintShortMenu()
         {
@@ -145,7 +66,7 @@ namespace SlithyToves.ConsoleApp
             Console.WriteLine("To quit, enter \"2\"");
         }
 
-        public static int GetMenuSelection() => Convert.ToInt32(Console.ReadLine());
+        
 
     }
 }

@@ -32,7 +32,7 @@ namespace SlithyToves.Library.Models
             get => _lastName;
             set 
             {
-                if (string.IsNullOrEmpty(LastName)) 
+                if (value.Length == 0) 
                 {
                     throw new ArgumentException("Last name must not be empty.", nameof(value));
                 }
