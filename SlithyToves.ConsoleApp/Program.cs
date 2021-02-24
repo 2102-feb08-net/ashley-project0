@@ -27,29 +27,44 @@ namespace SlithyToves.ConsoleApp
             while (true)
             {
                 PrintMainMenu();
-                var input = Console.ReadLine();
+                var input1 = Console.ReadLine();
 
-                if (input == "a" || input == "b" || input == "c" || input == "d")
+                if (input1 == "a" || input1 == "b" || input1 == "c" || input1 == "d")
                 {
-                    if (input == "a") 
+                    if (input1 == "a") 
                     {
-                        CustomerUI.DisplayCustomerMenu(repository);
+                        CustomerUI.DisplayMenuToGetCustomerById(repository);
+                        PrintShortMenu();
+                        var input2 = Console.ReadLine();
+                        if (input2 == "m")
+                        {
+                            continue;
+                        }
+                        else if (input2 == "q")
+                        {
+                            break;
+                        }
+                    }
+                    else if (input1 == "b")
+                    {
+
                     }
                 }
                 else
                 {
                     Console.WriteLine("Please enter a valid option.");
                     continue;
-                }
+                }              
             }
+            Console.WriteLine("\n\nHave a nice day!\n");
         }
 
         public static void PrintMainMenu()
         {
             Console.WriteLine("\nSlithy Toves Bookish Interface\n");
             Console.WriteLine("Main Menu\n");
-            Console.WriteLine("a - To search for customers by ID");  // add search by name
-            Console.WriteLine("b - To add a customer");
+            Console.WriteLine("a - To search for a customer by ID");  // add search by name
+            Console.WriteLine("b - To create a new customer");   // add search by name
             Console.WriteLine("c - To place an order");
             Console.WriteLine("d - To view the order history of a customer");
             Console.WriteLine("e - To view the details of an order");
@@ -62,12 +77,9 @@ namespace SlithyToves.ConsoleApp
 
         public static void PrintShortMenu()
         {
-            Console.WriteLine("\nTo return to the main menu, please enter \"1\"");
-            Console.WriteLine("To quit, enter \"2\"");
+            Console.WriteLine("\nm - To return to the main menu");
+            Console.WriteLine("q - To quit\n");
         }
-
-        
-
     }
 }
 
