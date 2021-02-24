@@ -47,7 +47,21 @@ namespace SlithyToves.ConsoleApp
                     }
                     else if (input1 == "b")
                     {
-
+                        CustomerUI.DisplayMenuToGetCustomerByName(repository);
+                        PrintShortMenu();
+                        var input2 = Console.ReadLine();
+                        if (input2 == "m")
+                        {
+                            continue;
+                        }
+                        else if (input2 == "q")
+                        {
+                            break;
+                        }
+                    }
+                    else if (input1 == "c")
+                    {
+                        CustomerUI.DisplayMenuToGetAllCustomers(repository);
                     }
                 }
                 else
@@ -63,10 +77,9 @@ namespace SlithyToves.ConsoleApp
         {
             Console.WriteLine("\nSlithy Toves Bookish Interface\n");
             Console.WriteLine("Main Menu\n");
-            Console.WriteLine("a - To search for a customer by ID");  // add search by name
-            Console.WriteLine("b - To create a new customer");   // add search by name
-            Console.WriteLine("c - To place an order");
-            Console.WriteLine("d - To view the order history of a customer");
+            Console.WriteLine("a - To search for a customer by ID");  
+            Console.WriteLine("b - To search for a customer by name");   
+            Console.WriteLine("c - To view all customers");
             Console.WriteLine("e - To view the details of an order");
             Console.WriteLine("f - To view the order history of a location");
             Console.WriteLine("g - To quit\n");

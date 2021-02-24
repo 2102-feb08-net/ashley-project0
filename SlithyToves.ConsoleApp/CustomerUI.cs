@@ -16,12 +16,16 @@ namespace SlithyToves.ConsoleApp
         {
             Console.Write("Customer Last Name: ");
             var lastname = Console.ReadLine();
-            Console.WriteLine();
             Console.Write("Customer First Name: ");
             var firstname = Console.ReadLine();
             Console.WriteLine();
-            
 
+
+        }
+
+        public static void DisplayMenuToGetAllCustomers(Repository repository)
+        {
+            
         }
 
         

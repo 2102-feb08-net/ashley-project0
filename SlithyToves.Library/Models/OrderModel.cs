@@ -1,5 +1,4 @@
 using System;
-using SlithyToves.DataAccess;
 
 namespace SlithyToves.Library.Models
 {

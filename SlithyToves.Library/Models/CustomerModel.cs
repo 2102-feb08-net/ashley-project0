@@ -1,5 +1,4 @@
 using System;
-using SlithyToves.DataAccess;
 
 namespace SlithyToves.Library.Models
 {
@@ -48,7 +47,7 @@ namespace SlithyToves.Library.Models
             {
                 if (value.Length > 10) 
                 {
-                    throw new ArgumentOutOfRangeException("Please enter a valid 10 digit number or leave empty.");
+                    throw new ArgumentOutOfRangeException("Please enter a valid 10 digit number, digits only, or leave empty.");
                 }
                 _phone = value;
             }
@@ -64,7 +63,7 @@ namespace SlithyToves.Library.Models
                 {
                     throw new ArgumentNullException("Please enter a vaild email or leave empty.");
                 }
-                _email = Email;
+                _email = value;
             }
         }
         
@@ -78,7 +77,7 @@ namespace SlithyToves.Library.Models
                 {
                     throw new ArgumentException("Please enter a valid zip code or leave empty.");
                 }
-                _zip = Zip;
+                _zip = value;
             }
         }
 

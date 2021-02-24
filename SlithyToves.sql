@@ -130,15 +130,6 @@ INSERT INTO inventories (storeId, productId, onHand) VALUES
 
 SET IDENTITY_INSERT inventories OFF;
 
--- Get customer by last name
-SELECT customerId, firstName, lastName, phone, email, zip 
-FROM customers
-WHERE lastName = 'King';
-
--- CreateCustomer
-INSERT INTO customers (firstName, lastName, phone, email, zip) VALUES
-	('inputa', 'inputb', 'inputc', 'inputd', 12343);
-
 -- GetOrderHistoryByStoreId
 SELECT s.storeId, s.storeName, o.orderId, o.customerId, o.orderDate
 	FROM stores s INNER JOIN orders o ON s.storeId = o.storeId
@@ -185,3 +176,23 @@ WHERE orderId = 6;
 UPDATE orders 
 SET subtotal = 18.00 
 WHERE orderId = 7;
+
+UPDATE customers
+SET phone = 4569872231
+WHERE customerId = 1;
+
+UPDATE customers
+SET phone = 4569879988
+WHERE customerId = 2;
+
+UPDATE customers
+SET phone = 4569872233
+WHERE customerId = 3;
+
+UPDATE customers
+SET phone = 4569871144
+WHERE customerId = 4;
+
+UPDATE customers
+SET phone = 4569879632
+WHERE customerId = 5;

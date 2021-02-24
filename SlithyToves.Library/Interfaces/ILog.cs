@@ -1,4 +1,4 @@
-namespace SlithyToves.DataAccess
+namespace SlithyToves.Library
 {
     public interface ILog
     {
